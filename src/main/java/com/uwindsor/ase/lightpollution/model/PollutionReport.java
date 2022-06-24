@@ -1,0 +1,85 @@
+package com.uwindsor.ase.lightpollution.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="pollution_report")
+public class PollutionReport implements Serializable{
+
+	private static final long serialVersionUID = -2947809070142902215L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String image;
+	private String light_source;
+	private String style;
+	private String brightness;
+	private String light_color;
+	private Date date;
+	
+	public PollutionReport() {}
+	
+	public PollutionReport(String image, String light_source, String style, String brightness,
+			String light_color, Date date) {
+		super();
+		this.image = image;
+		this.light_source = light_source;
+		this.style = style;
+		this.brightness = brightness;
+		this.light_color = light_color;
+		this.date = date;
+	}
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getLight_source() {
+		return light_source;
+	}
+	public void setLight_source(String light_source) {
+		this.light_source = light_source;
+	}
+	public String getStyle() {
+		return style;
+	}
+	public void setStyle(String style) {
+		this.style = style;
+	}
+	public String getBrightness() {
+		return brightness;
+	}
+	public void setBrightness(String brightness) {
+		this.brightness = brightness;
+	}
+	public String getLight_color() {
+		return light_color;
+	}
+	public void setLight_color(String light_color) {
+		this.light_color = light_color;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+}

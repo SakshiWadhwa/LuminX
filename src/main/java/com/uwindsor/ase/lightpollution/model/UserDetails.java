@@ -25,9 +25,8 @@ public class UserDetails implements Serializable{
 		
 	}
 	
-	public UserDetails(Long id, String name, String mail) {
+	public UserDetails(String name, String mail) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.mail = mail;
 	}
