@@ -23,7 +23,7 @@ public class UserPollutionReportLink implements Serializable{
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "user_details_id", nullable = false)
+	@JoinColumn(name = "user_id", nullable = false)
 	private UserDetails userDetails;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
