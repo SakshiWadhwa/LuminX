@@ -2,11 +2,15 @@ package com.uwindsor.ase.lightpollution.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,13 +21,18 @@ public class PollutionReport implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long pollution_report_id;
+	
 	private String image;
 	private String light_source;
 	private String style;
 	private String brightness;
 	private String light_color;
 	private Date date;
+	
+	@OneToMany(mappedBy = "pollutionReport", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<LocationPollutionReportLink> locationPollutionReportLink;
+	
 	
 	public PollutionReport() {}
 	
@@ -38,12 +47,14 @@ public class PollutionReport implements Serializable{
 		this.date = date;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getPollution_report_id() {
+		return pollution_report_id;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setPollution_report_id(Long pollution_report_id) {
+		this.pollution_report_id = pollution_report_id;
 	}
+
 	public String getImage() {
 		return image;
 	}
