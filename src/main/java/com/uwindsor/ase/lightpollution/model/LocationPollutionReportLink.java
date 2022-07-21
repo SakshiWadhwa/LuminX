@@ -2,7 +2,9 @@ package com.uwindsor.ase.lightpollution.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +32,9 @@ public class LocationPollutionReportLink implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "pollution_report_id", nullable = false)
 	private PollutionReport pollutionReport;
+	
+	@OneToMany(mappedBy = "locationPollutionReportLink", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<UserPollutionReportLink> userPollutionReportLink;
 	
 	private Date date;
 	
