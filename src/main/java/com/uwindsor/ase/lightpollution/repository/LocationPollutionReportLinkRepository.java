@@ -11,4 +11,7 @@ public interface LocationPollutionReportLinkRepository extends JpaRepository<Loc
 
 	@Query("select lpr from LocationPollutionReportLink lpr where lpr.pollutionReport = (:pollutionReportCounter)")
 	LocationPollutionReportLink findByPollutionReportId(@Param("pollutionReportCounter") PollutionReport pollutionReportCounter);
+	
+	@Query("select lpr from LocationPollutionReportLink lpr where lpr.locationMaster = (:lm)")
+	List<LocationPollutionReportLink> fetchLocationPollutionLinkId(@Param("lm") LocationMaster lm);
 }
