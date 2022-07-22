@@ -1,0 +1,21 @@
+var dataset = ee.ImageCollection('NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG')
+                  .filter(ee.Filter.date('2021-04-01', '2021-05-01'));
+
+var nighttime = dataset.select('avg_rad');
+//var nighttime = dataset.select('cf_cvg'); 
+
+var nighttimeVis = {min: 0.0, max: 50.0};
+
+
+var visualize ={
+  //bands: ['avg_rad'],
+  max:50,
+  palette : ['black' ,'black','green','yellow', 'red']
+}
+
+Map.setCenter(-83.02, 42.31, 8);
+Map.addLayer(nighttime, visualize, 'Polluted Data',1,0.5);
+
+Map.setControlVisibility({
+  drawingToolsControl:false
+})
