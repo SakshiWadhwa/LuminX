@@ -14,10 +14,10 @@ public interface LightPollutionRepository extends JpaRepository<PollutionReport,
 	@Query("select pr from PollutionReport pr where pr.image = (:image) AND pr.light_source = (:light_source) AND pr.brightness = (:brightness)")
 	PollutionReport findPollutionReport(@Param("image") String image, @Param("light_source") String light_source, @Param("brightness") String brightness);
 
-	@Query("select rp from RecommendPlace rp where rp.province = (:province)")
+	@Query("select rp from RecommendPlace rp where LOWER(rp.province) = LOWER((:province))")
 	List<RecommendPlace> findPlacesByProvince(@Param("province") String province);
 
-	@Query("select rp from RecommendPlace rp where rp.city = (:city)")
+	@Query("select rp from RecommendPlace rp where LOWER(rp.city) = LOWER((:city))")
 	List<RecommendPlace> findPlacesByCity(@Param("city") String city);
 
 }

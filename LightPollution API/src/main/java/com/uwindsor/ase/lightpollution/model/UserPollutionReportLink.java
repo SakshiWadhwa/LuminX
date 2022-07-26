@@ -22,11 +22,11 @@ public class UserPollutionReportLink implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "user_id", nullable = false)
 	private UserDetails userDetails;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "pollution_report_id", nullable = false)
 	private LocationPollutionReportLink locationPollutionReportLink;
 	

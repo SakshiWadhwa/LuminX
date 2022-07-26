@@ -30,7 +30,7 @@ public class PollutionReport implements Serializable{
 	private String light_color;
 	private Date date;
 	
-	@OneToMany(mappedBy = "pollutionReport", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "pollutionReport", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<LocationPollutionReportLink> locationPollutionReportLink;
 	
 	

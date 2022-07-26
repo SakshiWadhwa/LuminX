@@ -25,15 +25,15 @@ public class LocationPollutionReportLink implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "location_id", nullable = false)
 	private LocationMaster locationMaster;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "pollution_report_id", nullable = false)
 	private PollutionReport pollutionReport;
 	
-	@OneToMany(mappedBy = "locationPollutionReportLink", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "locationPollutionReportLink", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<UserPollutionReportLink> userPollutionReportLink;
 	
 	private Date date;

@@ -25,7 +25,7 @@ public class UserDetails implements Serializable{
 	private String name;
 	private String mail;
 	
-	@OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<UserPollutionReportLink> userPollutionReportLink;
 	
 	public UserDetails() {
